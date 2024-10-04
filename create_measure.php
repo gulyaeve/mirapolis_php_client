@@ -64,8 +64,8 @@ $service_url = 'https://v16077.vr.mirapolis.ru/mira/service/v2/measures';
 // задание массива параметров мероприятия
 $parameters = array(
     'mename' => 'Тестовое мероприятие из PHP',
-    'mestartdate' => '2013-04-04 13:00:00.000',
-    'meenddate' => '2013-04-04 14:00:00.000',
+    'mestartdate' => '2024-11-04 13:00:00.000',
+    'meenddate' => '2024-11-04 14:00:00.000',
     'metype' => '1',
     'meeduform' => '1'
 );
