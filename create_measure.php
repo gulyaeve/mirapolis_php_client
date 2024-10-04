@@ -71,7 +71,11 @@ $parameters = array(
 );
 $res = sendrequest($service_url, $parameters, 'POST', 0);
 // print_r($res);
-echo $res['meid'];
+$meid = $res['meid'];
+echo $meid;
+$admin_id = 143;
+$admin_url = "$service_url/$meid/tutors/$admin_id";
+$add_admin = sendrequest($admin_url, array(), 'POST', 0);
 // echo "Создано мероприятие с id $res";
 
 ?>
