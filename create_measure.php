@@ -46,15 +46,17 @@ function sendrequest($url, $parameters, $method, $ret_crange)
         $response = $curl_response;  // если результат не json
     $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);  // получение кода результата
     curl_close($ch);
-    echo $code;
+    // echo $code;
     // анализ ответа
-    if ($code != 200) {
+    if ($code == 201) {
+        return $response;
+    } else if ($code != 200) {
         throw new Exception('Неправильный HTTP-код: ' . $code);
     } else if (is_array($response) && isset($response['errorMessage'])) {
         throw new Exception('Возвращена ошибка: ' . $response['errorMessage']);
     } else {
         return $response;
-    }
+    };
 }
 
 // $service_url = "https://systemurl.ru/mira/service/v2/measures";
@@ -68,6 +70,8 @@ $parameters = array(
     'meeduform' => '1'
 );
 $res = sendrequest($service_url, $parameters, 'POST', 0);
-echo "Создано мероприятие с id $res";
+// print_r($res);
+echo $res['meid'];
+// echo "Создано мероприятие с id $res";
 
 ?>
